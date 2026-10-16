@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security | LifeVault</title>
+<meta name="description" content="What LifeVault encrypts, where the keys live, and what it cannot protect you from.">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- site-header:start -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/logo-mark.svg" alt="" width="32" height="32">LifeVault</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="security.html" aria-current="page">Security</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- site-header:end -->
+
+<main id="main" class="page">
+<div class="wrap">
+<h1>How LifeVault protects your data</h1>
+<p class="standfirst">What is encrypted, where the keys live, and what the app cannot protect you from.</p>
+
+<div class="prose">
+
+<h2 id="offline">Nothing leaves the phone</h2>
+<p>LifeVault does not request Android's internet permission, or permission to see the state of your network. Android does not let an app open a network connection without that permission. There is no server on our side, no account, and no code in the app for analytics, advertising or crash reporting.</p>
+<p>Android's cloud backup and phone-to-phone transfer are switched off for the app, so the vault is not copied to a Google account behind your back.</p>
+
+<h2 id="rest">Encrypted on your phone</h2>
+<ul>
+  <li><strong>Database.</strong> Your people and documents are kept in a SQLCipher database. It is encrypted with a random 256-bit key created on your phone the first time you open the app.</li>
+  <li><strong>The key.</strong> That key is held in secure storage protected by the Android Keystore. It never leaves the phone.</li>
+  <li><strong>Scans and photos.</strong> Each attachment and its thumbnail is encrypted as its own file with AES-GCM. When you view one, it is decrypted in memory, not written back to storage in readable form.</li>
+</ul>
+
+<h2 id="lock">The lock</h2>
+<ul>
+  <li>A six-digit PIN. The app stores a hash of it made with Argon2id, not the PIN itself.</li>
+  <li>Wrong attempts are slowed down: after repeated mistakes you must wait before trying again, from 30 seconds up to an hour, and the wait survives restarting the app.</li>
+  <li>Optional fingerprint or face unlock through Android. The app is told only whether the check passed.</li>
+  <li>The app locks when you leave it: immediately, or after 1 or 5 minutes, as you choose.</li>
+  <li>Screenshots and the preview in the recent-apps list are blocked unless you turn that off.</li>
+</ul>
+
+<h2 id="reminders">Reminders that give nothing away</h2>
+<p>A reminder says, for example, "A document expires in 7 days." It never includes a document number, a title or a person's name, and its content is hidden on a locked screen where Android supports that. Tapping it opens the app, which asks for your PIN first.</p>
+
+<h2 id="backup">Backups</h2>
+<p>A backup is one file containing your documents and attachments. It is encrypted with AES-GCM using a key derived from a password you choose, with Argon2id, which is designed to make guessing slow. The file is only as strong as that password. Choose a long one, and do not reuse it.</p>
+
+<h2 id="copy">Copying and sharing</h2>
+<p>When you copy a document number, the app marks it as sensitive, so Android shows dots instead of the number in its clipboard preview. After 60 seconds the app clears it from the clipboard, provided it is still the last thing you copied. If you are in another app at that moment, it is cleared when you come back to LifeVault, because Android does not let an app look at the clipboard while it is in the background. A PDF you share is made on your phone and is not encrypted, so send it only to people and apps you trust.</p>
+
+<h2 id="limits">What it cannot protect you from</h2>
+<ul>
+  <li>Someone who knows your PIN, or whose fingerprint or face is registered on your phone.</li>
+  <li>A phone that has been rooted or infected with malicious software that can read the screen or memory while the vault is open.</li>
+  <li>A weak backup password, or a backup file and its password kept together.</li>
+  <li>A PDF or backup after it has left the app.</li>
+  <li>Forgetting your PIN. There is no recovery; see <a href="support.html#forgot">Support</a>.</li>
+</ul>
+
+<h2 id="report">Report a security problem</h2>
+<p>If you find a weakness, please tell us at <a href="mailto:valeedlabs@gmail.com">valeedlabs@gmail.com</a> before making it public, so it can be fixed.</p>
+
+</div>
+</div>
+</main>
+
+<!-- site-footer:start -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><img src="assets/img/logo-mark.svg" alt="" width="32" height="32">LifeVault</a>
+        <p>Your important documents. Private, offline, always on time.</p>
+        <a class="footer-cta" href="https://play.google.com/store/apps/details?id=com.valeedlabs.lifevault">Get it on Google Play</a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <div>
+          <h2>The app</h2>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="security.html">Security</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms of use</a></li>
+            <li><a href="licences.html">Open-source licences</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:valeedlabs@gmail.com">valeedlabs@gmail.com</a></li>
+            <li><a href="security.html#report">Report a security problem</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Valeed Labs</p>
+      <p>This website sets no cookies, runs no analytics and loads nothing from other sites.</p>
+    </div>
+  </div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>
