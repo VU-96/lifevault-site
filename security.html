@@ -48,11 +48,13 @@
 
 <h2 id="lock">The lock</h2>
 <ul>
-  <li>A six-digit PIN. The app stores a hash of it made with Argon2id, not the PIN itself.</li>
-  <li>Wrong attempts are slowed down: after repeated mistakes you must wait before trying again, from 30 seconds up to an hour, and the wait survives restarting the app.</li>
-  <li>Optional fingerprint or face unlock through Android. The app is told only whether the check passed.</li>
+  <li>You choose the lock: a six-digit PIN just for LifeVault, your phone's own screen lock (Android 11 and newer), or none.</li>
+  <li>The PIN: the app stores a hash of it made with Argon2id, not the PIN itself. Wrong attempts are slowed down: after repeated mistakes you must wait before trying again, from 30 seconds up to an hour, and the wait survives restarting the app.</li>
+  <li>The phone's screen lock: Android's own prompt asks for the phone's PIN, pattern, password or fingerprint, and Android counts wrong attempts. The app is told only whether the check passed.</li>
+  <li>With the PIN you can add fingerprint or face unlock. Only Android's strongest class of biometrics is accepted, and the unlock is tied to a key in the phone's secure hardware: if a fingerprint or face is added to the phone, the key is destroyed and only the PIN opens the vault until you turn biometrics on again.</li>
   <li>The app locks when you leave it: immediately, or after 1 or 5 minutes, as you choose.</li>
   <li>Screenshots and the preview in the recent-apps list are blocked unless you turn that off.</li>
+  <li>Other apps cannot draw over LifeVault while it is open (Android 12 and newer), so nothing can sit on top of the PIN pad.</li>
 </ul>
 
 <h2 id="reminders">Reminders that give nothing away</h2>
@@ -66,7 +68,7 @@
 
 <h2 id="limits">What it cannot protect you from</h2>
 <ul>
-  <li>Someone who knows your PIN, or whose fingerprint or face is registered on your phone.</li>
+  <li>Someone who knows your PIN, or, if you lock with the phone's screen lock, your phone's PIN, pattern or password; or someone whose fingerprint or face is registered on your phone.</li>
   <li>A phone that has been rooted or infected with malicious software that can read the screen or memory while the vault is open.</li>
   <li>A weak backup password, or a backup file and its password kept together.</li>
   <li>A PDF or backup after it has left the app.</li>
